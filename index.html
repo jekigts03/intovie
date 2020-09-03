@@ -3,6 +3,7 @@
 <head>
 	<title>Intovie</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -100,7 +101,6 @@
 						$("#movieList").empty();
 						for(var row = 0; row < data.length; row++)
 						{
-							var bro ="hehe";
 							$("#movieList").append('<div class="col-md-4" style="margin-bottom: 20px;"><div class="card"><img class="card-img-top" height="500" src="'+data[row].Poster+'"><div class="card-body"><h5 class="card-title">'+data[row].Title+'</h5><p class="card-text">This is a '+data[row].Type+' that was made in '+data[row].Year+'.</p><button class="btn btn-primary read" data-toggle="modal" data-id="'+data[row].imdbID+'" type="button" data-target="#modalInformation">Read More</button></div></div></div>');
 						}						
 					}else{
@@ -110,7 +110,7 @@
 				}
 			});
 		}
-		
+
 		$("#movieList").on("click", ".read", function()
 		{
 			var movieValue = this.getAttribute("data-id");
